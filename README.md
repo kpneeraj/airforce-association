@@ -1,2 +1,2 @@
 # airforce-association
-A web application to manage airforce veterans
+A web application to manage airforce veterans. Just an experiment.
