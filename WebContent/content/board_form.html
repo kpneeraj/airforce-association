@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<!--link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"-->
+		<script src="../js/jquery-1.10.2.js"></script>
+		<script src="../js/jquery-ui.min.js"></script>
+
+		<link rel="stylesheet" href="../css/jquery-ui.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+					<link rel="stylesheet" type="text/css" href="../css/ext-all-gray.css">
+
+			<script type="text/javascript" language="javascript" src="../js/ext-all-debug.js"></script>
+
+		<script type="text/javascript" language="javascript" src="../js/validate.js"></script>
+		<script type="text/javascript" language="javascript" src="../js/board_form.js"></script>
+		<script type="text/javascript" language="javascript" src="../js/boardtableinfo.js"></script>
+	</head>
+	<body>
+	<div id="tabs">
+	  <ul>
+		<li><a href="#addtab">Add</a></li>
+		<li><a href="#edittab">Edit</a></li>
+	  </ul>
+	<div id="addtab">
+		<div>Add a new branch</div>
+			<table style="float:left" class="applicationtable">
+				<tr>
+					<td>Branch Name<span class="required">*</span></td>
+					<td>
+						<input required formelement="addboard" type="text" id="boardName"><span class="error" for="boardName"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>State<span class="required">*</span></td>
+					<td>
+                        <select required  id="boardState" formelement="addboard">
+                            <option value="--select--">-Select</option>
+                        </select>
+						<button class='ui-widget dropdownbutton' id='boardStatedropdown'></button>
+						<button class='ui-widget dropdownbuttondelete' id='boardStatedropdowndelete'></button>
+						<span class="error" for="boardState"></span>
+                    </td>
+				</tr>
+                <tr>
+					<td>District<span class="required">*</span></td>
+					<td>
+                        <select required id="boardDistrict" formelement="addboard">
+                            <option value="--select--">-Select</option>
+                        </select>
+						<button class='ui-widget dropdownbutton' id='boardDistrictdropdown'></button>
+						<button class='ui-widget dropdownbuttondelete' id='boardDistrictdropdowndelete'></button>
+						<span class="error" for="boardDistrict"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Address</td>
+					<td>
+						<textarea  formelement="addboard" cols="21" id="boardAddress"></textarea>
+						<span class="error" for="boardAddress"></span>
+					</td>
+				</tr>
+            </table>
+            <table style="margin-left: 550px"  class="applicationtable">
+                <tr>
+					<td>Pincode</td>
+					<td><input min=6 max=6 formelement="addboard" number type="text" cols="21" id="pincode"><span class="error" for="pincode"></span></td>
+				</tr>
+                <tr>
+					<td>Contact No</td>
+					<td><input formelement="addboard"  telephonenumber type="text" cols="21" id="contactno"><span class="error" for="contactno"></span></td>
+				</tr>
+                <tr>
+					<td>E-mail</td>
+					<td><input formelement="addboard" email type="email" cols="21" id="email"><span class="error" for="email"></span></td>
+				</tr>
+                <tr>
+					<td>Director's Name</td>
+					<td><input textonly formelement="addboard" type="text" cols="21" id="director"><span class="error" for="director"></span></td>
+				</tr>
+			</table>
+			<table style="clear:both"  class="applicationtable">
+				<tr>
+					<td><input type="button" value="Submit" id="submitbutton"></td>
+					<td><input type="button" value="Clear" id="clearbutton">
+					</td>
+				</tr>
+			</table>
+		<div id="deleteconfirm" style="display:none">Are you sure to delete this board? All veterans under this board will be permanently deleted.</div>
+  </div>
+  
+  <div id="edittab">
+		<div>
+		<div class="ui-corner-all" id="searcharea" style="float:left;width:23%;height:210px;border:solid 1px grey;padding:6px">
+			<b>Search Branches</b>
+			<table id="searchboards"  class="applicationtable">
+				<tr>
+					<td>Search In</td>
+					<td> <select id="searchboards_searchin"> 
+							<option>--Select--</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Operator</td>
+					<td> <select id="searchboards_operator"> 
+							<option>--Select--</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><hr/></td>
+					<td><hr/></td>
+				</tr>
+			</table>
+			<button id="Search">Search</button>		
+			<div>Note:All searches are case sensitive</div>
+		</div>
+		<div style="float:left;width:75%;margin-left:5px" id="boardstable" cellspacing=0 border="0" class="datatable">
+               
+		</div>
+		</div>
+		<div style="clear:both">
+		<hr/>
+		<table style="float:left" class="applicationtable">
+				<tr>
+					<td>Branch Name</td>
+					<td><input formelement="editboard" type="text" id="editboardName" disabled>
+					<span class="error" for="editboardName"></span></td>
+				</tr>
+				<tr>
+					<td>State<span class="required">*</span></td>
+					<td>
+                        <select required formelement="editboard" id="editboardState">
+                            <option value="--select--">-Select</option>
+                        </select>
+						<button class='ui-widget dropdownbutton' id='editboardStatedropdown'></button>
+						<button class='ui-widget dropdownbuttondelete' id='editboardStatedropdowndelete'></button>
+						<span class="error" for="editboardState"></span>
+					</td>
+				</tr>
+                <tr>
+					<td>District<span class="required">*</span></td>
+					<td>
+                        <select required formelement="editboard" id="editboardDistrict">
+                            <option value="--select--">-Select</option>
+                        </select>
+						<button class='ui-widget dropdownbutton' id='editboardDistrictdropdown'></button>
+						<button class='ui-widget dropdownbuttondelete' id='editboardDistrictdropdowndelete'></button>
+						<span class="error" for="editboardDistrict"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Address</td>
+					<td><textarea formelement="editboard" cols="21" id="editboardAddress"></textarea><span class="error" for="editboardAddress"></span></td>
+				</tr>
+           </table>
+           <table style="margin-left: 550px" class="applicationtable">
+                <tr>
+					<td>Pincode</td>
+					<td><input min=6 max=6 formelement="editboard" number type="text" cols="21" id="editpincode">
+					<span class="error" for="editpincode"></span>
+					</td>
+				</tr>
+                <tr>
+					<td>Contact No</td>
+					<td><input formelement="editboard" telephonenumber type="text" cols="21" id="editcontactno">
+					<span class="error" for="editcontactno"></span>
+					</td>
+				</tr>
+                <tr>
+					<td>E-mail</td>
+					<td><input formelement="editboard" email type="email" cols="21" id="editemail">
+					<span class="error" for="editemail"></span>
+					</td>
+				</tr>
+                <tr>
+					<td>Director's Name</td>
+					<td><input textonly formelement="editboard" type="text" cols="21" id="editdirector">
+					<span class="error" for="editdirector"></span>
+					</td>
+				</tr>
+
+			</table>
+			
+			<table style="clear:both" class="applicationtable">
+				<tr>
+					<td><div class="ui-widget"><input type="button" value="Update" id="editsubmitbutton"></div></td>
+					<td><div class="ui-widget"><input type="button" value="Delete" id="deletebutton"></div>
+					</td>
+				</tr>
+			</table>
+			</div>
+  </div>
+</div>
+
+<div id="dialogcontainer" style="display:none">
+	<div id="addnewformentry">
+		<table class="applicationtable">
+			<tr style="display:none" data='false' template>
+				<td id=""></td>
+				<td id=""><input id="" type="text" disabled/></td>
+			</tr>
+			<tr data='true'>
+				<td id="addfield"></td>
+				<td><input id="addfieldvalue" type="text"/></td>
+			</tr>
+		</table>
+		<div id="addnewformentryErrorDiv" style="color:red"></div>
+	</div>
+	
+	<div id="deletenewformentry">
+		<table class="applicationtable">
+			<tr style="display:none" data='false' template>
+				<td id=""></td>
+				<td id=""><input id="" type="text" disabled/></td>
+			</tr>
+			<tr data='true'>
+				<td id="deletefield"></td>
+				<td><input id="deletefieldvalue" type="text" disabled/></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="modal"><!-- Place at bottom of page --></div>
+</body>
+</html>

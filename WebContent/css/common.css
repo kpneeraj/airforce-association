@@ -1,0 +1,121 @@
+.x-body{
+	font-size:15px!important;
+}
+
+table.applicationtable{
+	border-collapse:separate!important;
+	border-spacing:8px!important;
+}
+
+.info {
+font-size: small;
+}
+
+.datatable{
+	width:100%;
+	font-size:small;
+	
+}
+
+.theader_row{
+	background-color: gainsboro;
+	height: 12px;
+}
+
+.theader_column{
+	height: 25px;
+}
+
+.tr_even{
+		height: 16px;
+		background-color: #FFFFFF
+}
+
+.tr_odd{
+		height: 16px;
+		background-color: #E3E6E6
+}
+
+.onhover{
+		background-color: beige
+}
+
+.buttonclass{
+    height: 20px;
+}
+
+.dropdownbutton{
+	height:20px;
+	width: 18px;
+	margin-bottom: 5px;
+}
+
+.dropdownbuttondelete{
+	height:20px;
+	width: 18px;
+	margin-bottom: 5px;
+}
+
+.ui-button-icon-primary{
+	left:0px !important;
+}
+
+td{
+    height:16px;
+}
+
+#edittab {
+     padding:2px 0px 2px 0px;
+}
+
+.error{
+	color:red;
+}
+
+input, select, textarea{
+	border:1px solid black;
+}
+
+select{
+	width:163px;
+}
+
+input[type='radio']{
+	border:0px;
+}
+
+.required{
+	color:red
+}
+
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('images/ajax-loader.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+body{
+	margin: 0px 0px 0px 0px;
+}
+
+

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="../css/common.css">
+		<!--link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"-->
+		<script src="../js/jquery-1.10.2.js"></script>
+		<script src="../js/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="../css/jquery-ui.css">
+		<script type="text/javascript" language="javascript" src="../js/validate.js"></script>
+		<script type="text/javascript" language="javascript" src="../js/user.js"></script>
+	</head>
+	<body>
+	<div id="tabs">
+	  <ul>
+		<li id="addtabmenu"><a href="#addtab">Add</a></li>
+		<li><a href="#edittab">Edit</a></li>
+	  </ul>
+	<div id="addtab">
+		<div>Add a new User</div>
+			<table style="float:left">
+				<tr>
+					<td>User Name<span class="required">*</span></td>
+					<td>
+						<input required formelement="adduser" type="text" id="username"><span class="error" for="username"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Email Id<span class="required">*</span></td>
+					<td>
+						<input required formelement="adduser" type="text" id="email"><span class="error" for="email"></span>
+                    </td>
+				</tr>
+				<tr>
+					<td>Password<span class="required">*</span></td>
+					<td>
+						<input required formelement="adduser" type="password" id="password"><span class="error" for="password"></span>
+                    </td>
+				</tr>
+                <tr>
+					<td>Contact No<span class="required">*</span></td>
+					<td>
+						<input required formelement="adduser" type="text" id="contactno"><span class="error" for="contactno"></span>
+                    </td>
+				</tr>
+				<tr>
+					<td>Role<span class="required">*</span></td>
+					<td>
+                        <select required formelement="adduser" id="role">
+                            <option value="">--Select--</option>
+							<option value="admin">Admin</option>
+							<option value="boardadmin">Board Admin</option>
+                        </select>
+						<span class="error" for="role"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Branch</td>
+					<td>
+                        <select formelement="adduser" id="board">
+                            <option value="--select--">-Select</option>
+                        </select>
+						<span class="error" for="board"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Is Suspended?</td>
+					<td>
+                        <input  formelement="adduser" type='radio' name="suspended" value="True" id="suspended1" >Yes
+                        <input  formelement="adduser" type='radio' name="suspended" value="False" id="suspended2" checked>No
+						<span class="error" for="suspended"></span>
+					</td>
+				</tr>
+            </table>
+			<table style="clear:both">
+				<tr>
+					<td><input type="button" value="Submit" id="submitbutton"></td>
+					<td><input type="button" value="Clear" id="clearbutton">
+					</td>
+				</tr>
+			</table>
+		<div id="deleteconfirm" style="display:none">Are you sure to delete this user?</div>
+  </div>
+  
+  <div id="edittab">
+		Username:<input required formelement="edituser" type="text" id="searchusername">
+		<button value="Get details" id="getDetailsButton">Get Details</button>
+		<hr>
+		<table>
+				<tr>
+					<td>Edit User Details</td>
+				</tr>
+				<tr>
+					<td>User Name<span class="required">*</span></td>
+					<td>
+						<input required formelement="edituser" type="text" id="editusername" disabled><span class="error" for="editusername"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Email Id<span class="required">*</span></td>
+					<td>
+						<input formelement="edituser" type="text" id="editemail"><span class="error" for="editemail" ></span>
+                    </td>
+				</tr>
+                <tr>
+					<td>Contact No<span class="required">*</span></td>
+					<td>
+						<input required formelement="edituser" type="text" id="editcontactno"><span class="error" for="editcontactno"></span>
+                    </td>
+				</tr>
+				<tr>
+					<td>Role<span class="required">*</span></td>
+					<td>
+                        <select required formelement="edituser" id="editrole">
+                            <option value="">--Select--</option>
+							<option value="admin">Admin</option>
+							<option value="boardadmin">Branch Admin</option>
+                        </select>
+						<span class="error" for="editrole"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Branch</td>
+					<td>
+                        <select formelement="edituser" id="editboard">
+                            <option value="--select--">-Select</option>
+                        </select>
+						<span class="error" for="editboard"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Is Suspended?</td>
+					<td>
+                        <input  formelement="edituser" type='radio' name="editsuspended" value="True" id="editsuspended1" >Yes
+                        <input  formelement="edituser" type='radio' name="editsuspended" value="False" id="editsuspended2" checked>No
+						<span class="error" for="editsuspended"></span>
+					</td>
+				</tr>
+           </table>
+			<table style="clear:both">
+				<tr>
+					<td><div class="ui-widget"><input type="button" value="Update" id="editsubmitbutton"></div></td>
+					<td><div class="ui-widget"><input type="button" value="Delete" id="deletebutton"></div>
+					</td>
+				</tr>
+			</table>
+			<hr>
+			
+			<table style="">
+				<tr>
+					<td>New Password</td><td></td>
+				</tr>
+				<tr>
+					<td><input formelement="edituser" type="password" id="editpassword"><span class="error" for="editpassword"></input></td>
+					<td><div class="ui-widget"><input type="button" value="Update Password" id="updatepasswordbutton"></div></td>
+				</tr>
+			</table>			
+  </div>
+</div>
+
+<div id="dialogcontainer" style="display:none">
+</div>
+<div class="modal"><!-- Place at bottom of page --></div>
+</body>
+</html>

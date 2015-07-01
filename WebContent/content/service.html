@@ -1,0 +1,1772 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <!--link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"-->
+    <script src="../js/jquery-1.10.2.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/ext-all-gray.css">
+
+	<script type="text/javascript" language="javascript" src="../js/validate.js"></script>
+				<script type="text/javascript" language="javascript" src="../js/ext-all-debug.js"></script>
+
+	<script type="text/javascript" language="javascript" src="../js/servicetableinfo.js"></script>
+    <script type="text/javascript" language="javascript" src="../js/service.js"></script>
+    <script type="text/javascript" language="javascript" src="../js/fileupload.js"></script>
+    <title></title>
+</head>
+<body>
+    <div id="tabs">
+    <ul>
+        <li><a href="#addtab">Add</a></li>
+        <li><a href="#edittab">Edit</a></li>
+    </ul>
+    <div id="addtab">
+        <div id="addtabform">
+            <ul>
+                <li><a href="#servicedetails">Service Details</a></li>
+                <li><a href="#pensiondetails">Pension Details</a></li>
+                <li><a href="#personaldetails">Personal Details</a></li>
+                <li><a href="#contactdetails">Contact Details</a></li>
+                <li><a href="#familydetails">Family Details</a></li>
+                <li><a href="#dependentdetails">Dependent Details</a></li>
+
+            </ul>
+            <div id="servicedetails">
+                <table style="float: left"  class="applicationtable">
+                    <tr>
+                        <td>Branch<span class="required">*</span></td>
+                        <td>
+							<select required formelement="addservice" id="board">
+									<option value="">--Select--</option>
+								</select>
+                            <span class="error" for="board">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Service<span class="required">*</span></td>
+                        <td>
+                            <select required formelement="addservice"  id="service">
+                                <option value="Air Force" selected>Air Force</option>
+                            </select>
+							<span class="error" for="service">
+                        </td>
+                    </tr>
+                    <tr style="display:none">
+                        <td>Corps</td>
+                        <td>
+                            <select formelement="addservice"  type="text" id="corps">
+								<option value="">--Select--</option>
+							</select>
+							<button class='ui-widget dropdownbutton' id='corpsdropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='corpsdropdowndelete'></button>
+							<span class="error" for="corps"/>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Group</td>
+                        <td>
+                            <select  formelement="addservice" type="text" id="group">
+								<option value="">--Select--</option>
+							</select>
+							<button class='ui-widget dropdownbutton' id='groupdropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='groupdropdowndelete'></button>
+							<span class="error" for="group"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Trade<span class="required">*</span></td>
+                        <td>
+                            <select required formelement="addservice" type="text" id="trade">
+								<option value="">--Select--</option>
+							</select>
+							<button class='ui-widget dropdownbutton' id='tradedropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='tradedropdowndelete'></button>
+							<span class="error" for="trade"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rank<span class="required">*</span></td>
+                        <td>
+                            <select required formelement="addservice" type="text" id="rank">
+								<option value="">--Select--</option>
+							</select>
+							<button class='ui-widget dropdownbutton' id='rankdropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='rankdropdowndelete'></button>
+							<span class="error" for="rank">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Name<span class="required">*</span></td>
+                        <td>
+                            <input textonly required formelement="addservice" type="text" id="name">
+							<span class="error" for="name">
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Photo</td>
+                        <td>
+							<form method="POST" enctype="multipart/form-data" id="uploadphotoform" action="../UploadImage">
+								<input formelement="addservice" type="file" name="photo" id="photo"/>
+							</form>
+							<span class="error" for="photo"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Family Photo</td>
+                        <td>
+							<form method="POST" enctype="multipart/form-data" id="uploadfamilyphotoform" action="../UploadImage">
+								<input formelement="addservice" type="file" name="familyphoto" id="familyphoto"/>
+							</form>
+							<span class="error" for="familyphoto"/>
+                        </td>
+                    </tr>
+                </table>
+                <table  class="applicationtable" style="margin-left: 550px;width:530px">
+                    <tr>
+                        <td style="width: 121px;">Service No.<span class="required">*</span></td>
+                        <td>
+                            <input  number required formelement="addservice" type="text" id="serviceno" >
+							<span class="error" for="serviceno">
+                        </td>
+                    </tr>
+					<tr>
+                        <td style="width: 121px;">Registration No<span class="required">*</span></td>
+                        <td>
+                            <input  required formelement="addservice" type="text" id="registrationno" >
+							<span class="error" for="registrationno">
+                        </td>
+                    </tr>
+                    <tr>
+                            <td>AFA Card No.</td>
+                            <td>
+                                <input  formelement="editservice" type="text" id="editafacardno">
+								<span class="error" for="editafacardno"/>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td>Date of birth<span class="required">*</span></td>
+                        <td>
+                            <input date required formelement="addservice" id="dob">
+							<span class="error" for="dob">
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Gender</td>
+                        <td>
+                            <input formelement="addservice" type='radio' name="gender" value="Male" id="gender" checked>Male
+                            <input formelement="addservice" type='radio' name="gender" value="Female" id="gender">Female
+							<span class="error" for="gender">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Enrollment date<span class="required">*</span></td>
+                        <td>
+                            <input date required formelement="addservice" id="dateenrolled">
+							<span class="error" for="dateenrolled">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>World War II</td>
+                        <td>
+                            <input formelement="addservice" type='radio' name="wwii" value="Yes" id="wwii">Yes
+                            <input formelement="addservice" type='radio' name="wwii" value="No" id="wwii" checked>No
+							<span class="error" for="wwii">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Operations</td>
+                        <td>
+                            <input formelement="addservice" type="text" id="operations">
+							<span class="error" for="operations">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Decoration</td>
+                        <td>
+                            <input formelement="addservice" type="text" id="decoration">
+							<span class="error" for="decoration">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="pensiondetails" style="width:1150px;">
+                <table style="float:left;width:530px;"  class="applicationtable">
+                    <tr>
+                        <td style=" width: 150px;">Unit last served<span class="required">*</span></td>
+                        <td style=" width: 329px;">
+                            <input required formelement="addservice" type="text" id="unitlastserved">
+							<span class="error" for="unitlastserved">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date of discharge<span class="required">*</span></td>
+                        <td>
+                            <input date required formelement="addservice" id="datedischarged">
+							<span class="error" for="datedischarged">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Discharge Reason</td>
+                        <td>
+                            <select formelement="addservice" type="text" id="dischargereason">
+								<option value="">--Select--</option>
+							</select>
+							<button class='ui-widget dropdownbutton' id='dischargereasondropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='dischargereasondropdowndelete'></button>
+							<span class="error" for="dischargereason">
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Date of death</td>
+                        <td>
+                            <input date formelement="addservice" type="text" id="dateofdeath" disabled>
+							<span class="error" for="dateofdeath">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Death Details</td>
+                        <td>
+                            <select formelement="addservice" id="deathdetails" disabled>
+                                <option value="Not Applicable">--Not Applicable--</option>
+                                <option value="Attributable">Attributable</option>
+                                <option value="Non-Attributable">Non-Attributable </option>
+                                <option value="War">War</option>
+                                <option value="Operation">Operation</option>
+                            </select>
+							<button class='ui-widget dropdownbutton' id='deathdetailsdropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='deathdetailsdropdowndelete'></button>
+							<span class="error" for="deathdetails">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Medical category while discharge</td>
+                        <td>
+							<select formelement="addservice" id="mcatdischarge" ></select>
+							<button class='ui-widget dropdownbutton' id='mcatdischargedropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='mcatdischargedropdowndelete'></button>
+							<span class="error" for="mcatdischarge">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Character at discharge</td>
+                        <td>
+							<select formelement="addservice" id="characteratdischarge" ></select>
+							<button class='ui-widget dropdownbutton' id='characteratdischargedropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='characteratdischargedropdowndelete'></button>
+							<span class="error" for="characteratdischarge">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Discharge Book No</td>
+                        <td>
+                            <input formelement="addservice" type="text" id="dischargebookno">
+							<span class="error" for="dischargebookno">
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin-left: 560px;width:580px"  class="applicationtable">
+                    <tr>
+                        <td style="width: 165px;">PPO No</td>
+                        <td style="width: 385px;">
+                            <input formelement="addservice" type="text" id="pponumber">
+							<span class="error" for="pponumber">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Name of Records Office</td>
+                        <td>
+                            <input textonly formelement="addservice" type="text" id="cda">
+							<span class="error" for="cda">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Service Pension</td>
+                        <td>
+                            <input formelement="addservice" type="text" id="servicepension">
+							<span class="error" for="servicepension">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Disability Pension</td>
+                        <td>
+                            <input formelement="addservice" type="text" id="disabilitypension">
+							<span class="error" for="disabilitypension">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Percentage of disability</td>
+                        <td>
+                            <input number formelement="addservice" type="text" id="percentageofdisability">
+							<span class="error" for="percentageofdisability">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pension Account Number</td>
+                        <td>
+                            <input number formelement="addservice" type="text" id="pensionaccno">
+							<span class="error" for="pensionaccno">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bank Name</td>
+                        <td>
+                            <input formelement="addservice" type="text" id="bankname">
+							<span class="error" for="bankname">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="personaldetails" style="display: inline-block">
+                    <table style="float:left;width:504px"  class="applicationtable">
+                        <tr>
+                            <td style=" width: 135px;">Father's Name<span class="required">*</span></td>
+                            <td  style="width: auto;">
+                                <input textonly required formelement="addservice" type="text" id="fathername">
+								<span class="error" for="fathername">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mother's Name</td>
+                            <td>
+                                <input  textonly formelement="addservice" type="text" id="mothername">
+								<span class="error" for="mothername">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Identification Mark<span class="required">*</span></td>
+                            <td>
+                                <input required formelement="addservice" type="text" id="identificationmark">
+								<span class="error" for="identificationmark">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Religion</td>
+                            <td>
+                                <select formelement="addservice" type="text" id="religion">
+                                 	<option value="">--Select--</option>
+									<option value="">Hindu</option>
+									<option value="">Muslim</option>
+									<option value="">Sikh</option>
+									<option value="">Christian</option>
+									<option value="">Jain</option>
+									<option value="">Others</option>
+								</select>
+								<span class="error" for="religion">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Caste</td>
+                            <td>
+                                <select formelement="addservice" type="text" id="caste">
+                                	<option value="">--Select--</option>
+									<option value="">SC</option>
+									<option value="">ST</option>
+									<option value="">OBC</option>
+									<option value="">MBC</option>
+									<option value="">OC</option>
+								</select>
+								<span class="error" for="caste">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Birth Place</td>
+                            <td>
+                                <input formelement="addservice" type="text" id="birthplace">
+								<span class="error" for="birthplace">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Birth State</td>
+                            <td>
+                                <select formelement="addservice" id="birthstate">
+                                    <option value="">--Select--</option>
+                                </select>
+								<button class='ui-widget dropdownbutton' id='birthstatedropdown'></button>
+								<button class='ui-widget dropdownbuttondelete' id='birthstatedropdowndelete'></button>
+								<span class="error" for="birthstate">
+                            </td>
+                        </tr>
+						<tr>
+                            <td>Birth District</td>
+                            <td>
+                                <select formelement="addservice" id="birthdistrict">
+                                    <option value="">--Select--</option>
+                                </select>
+								<button class='ui-widget dropdownbutton' id='birthdistrictdropdown'></button>
+								<button class='ui-widget dropdownbuttondelete' id='birthdistrictdropdowndelete'></button>
+								<span class="error" for="birthdistrict">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Educational Qualification in Civil</td>
+                            <td>
+                                <select formelement="addservice" type="text" id="qualificationincivil">
+									<option value="">--Select--</option>
+								</select>
+								<button class='ui-widget dropdownbutton' id='qualificationincivildropdown'></button>
+								<button class='ui-widget dropdownbuttondelete' id='qualificationincivildropdowndelete'></button>
+								<span class="error" for="qualificationincivil">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Educational Qualification in Service</td>
+                            <td>
+                                <select formelement="addservice" type="text" id="qualificationinservice">
+									<option value="">--Select--</option>
+								</select>
+								<button class='ui-widget dropdownbutton' id='qualificationinservicedropdown'></button>
+								<button class='ui-widget dropdownbuttondelete' id='qualificationinservicedropdowndelete'></button>
+								<span class="error" for="qualificationinservice">
+                            </td>
+                        </tr>
+                    </table>
+					<table style="margin-left:570px;width:560px" class="applicationtable">
+						<tr>
+                            <td style=" width: 159px;">Reemployment Status</td>
+                            <td style=" width: 383px;">
+                                <input formelement="addservice" type='radio' name="reemploymentstatus" value="Employed" id="reemploymentstatus1" checked>Employed
+                                <input formelement="addservice" type='radio' name="reemploymentstatus" value="Un-Employed" id="reemploymentstatus2">Un-Employed
+                                <input formelement="addservice" type='radio' name="reemploymentstatus" value="Retired" id="reemploymentstatus3">Retired
+								<span class="error" for="reemploymentstatus">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Employer</td>
+                            <td>
+                                <input formelement="addservice" type="text" id="employer">
+								<span class="error" for="employer">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Income</td>
+                            <td>
+                                <input number formelement="addservice" type="text" id="monthlyincome">
+								<span class="error" for="monthlyincome">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Department</td>
+                            <td>
+                                <input formelement="addservice" type="text" id="department">
+								<span class="error" for="department">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Official Contact Number</td>
+                            <td>
+                                <input telephonenumber formelement="addservice" type="text" id="officecontactno">
+								<span class="error" for="officecontactno">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Adhar Card Number</td>
+                            <td>
+                                <input min="12" max="12" formelement="addservice" type="text" id="adharcardno">
+								<span class="error" for="adharcardno">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CSD Card Number</td>
+                            <td>
+                                <input formelement="addservice" type="text" id="csdcardno">
+								<span class="error" for="csdcardno">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ECHS Card Number</td>
+                            <td>
+                                <input formelement="addservice" type="text" id="echscardno">
+								<span class="error" for="echscardno">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date Registered</td>
+                            <td>
+                                <input date formelement="addservice" type="text" id="dateregistered">
+								<span class="error" for="dateregistered">
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+            <div id="contactdetails">
+                <div>
+                        <table style="float: left;width:550px" class="applicationtable">
+                            <tr>
+                                <th>Current Address</th>
+                            </tr>
+                            <tr>
+                                <td>Door No.</td>
+                                <td style="width: 397px;">
+                                    <input formelement="addservice" type="text" id="communicationdoorno">
+									<span class="error" for="communicationdoorno">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>House name</td>
+                                <td>
+                                    <input formelement="addservice" type="text" id="communicationhousename">
+									<span class="error" for="communicationhousename">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Street<span class="required">*</span></td>
+                                <td>
+                                    <input required formelement="addservice" type="text" id="communicationstreet">
+									<span class="error" for="communicationstreet">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>City<span class="required">*</span></td>
+                                <td>
+                                    <input required formelement="addservice" type="text" id="communicationcity">
+									<span class="error" for="communicationcity">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>State<span class="required">*</span></td>
+                                <td>
+                                    <select required formelement="addservice" id="communicationstate">
+                                        <option value="">--Select--</option>
+                                    </select>
+									<button class='ui-widget dropdownbutton' id='communicationstatedropdown'></button>
+									<button class='ui-widget dropdownbuttondelete' id='communicationstatedropdowndelete'></button>
+									<span class="error" for="communicationstate">
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>District</td>
+                                <td>
+                                    <select formelement="addservice" id="communicationdistrict">
+                                        <option value="">--Select--</option>
+                                    </select>
+									<button class='ui-widget dropdownbutton' id='communicationdistrictdropdown'></button>
+									<button class='ui-widget dropdownbuttondelete' id='communicationdistrictdropdowndelete'></button>
+									<span class="error" for="communicationdistrict">
+
+                                </td>
+                            </tr>
+                        </table>
+                        <table style="float:left; margin-left:20px" class="applicationtable">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Police Station</td>
+                                <td>
+                                    <input formelement="addservice" type="text" id="communicationpolicestation">
+									<span class="error" for="communicationpolicestation">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Pincode</td>
+                                <td>
+                                    <input  min=6 max=6  number formelement="addservice" type="text" id="communicationpincode">
+									<span class="error" for="communicationpincode">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Telephone no.</td>
+                                <td>
+                                    <input telephonenumber formelement="addservice" type="text" id="communicationtelephone">
+									<span class="error" for="communicationtelephone">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mobile</td>
+                                <td>
+                                    <input number formelement="addservice" type="text" id="communicationmobile">
+									<span class="error" for="communicationmobile">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>
+                                    <input email formelement="addservice" type="text" id="communicationemail">
+									<span class="error" for="communicationemail">
+                                </td>
+                            </tr>
+                        </table>
+                    
+                </div>
+                <div style="clear:both">
+					<hr style="clear:left; "/>
+                    <table  style="float:left" class="applicationtable">
+                        <tr>
+                            <th>Permanent Address</th>
+							<td><button type="button" id="sameaddress" value="Copy">Same as above</button></td>
+                        </tr>
+                        <tr>
+                            <td>Door Number</td>
+                            <td>
+                                <input formelement="addservice" type="text" id="permanentdoorno">
+								<span class="error" for="permanentdoorno">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>House Name</td>
+                            <td>
+                                <input formelement="addservice" type="text" id="permanenthousename">
+								<span class="error" for="permanenthousename">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Street</td>
+                            <td>
+
+                                <input formelement="addservice" type="text" id="permanentstreet">
+								<span class="error" for="permanentstreet">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td>
+                                <input formelement="addservice" type="text" id="permanentcity">
+								<span class="error" for="permanentcity">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <table style="float:left; margin-left:60px" class="applicationtable">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td>
+                                <select formelement="addservice" id="permanentstate">
+                                        <option value="">--Select--</option>
+                                </select>
+								<button class='ui-widget dropdownbutton' id='permanentstatedropdown'></button>
+								<button class='ui-widget dropdownbuttondelete' id='permanentstatedropdowndelete'></button>
+								<span class="error" for="permanentstate">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>District</td>
+                            <td>
+                                <select formelement="addservice" id="permanentdistrict">
+                                        <option value="">--Select--</option>
+                                </select>
+								<button class='ui-widget dropdownbutton' id='permanentdistrictdropdown'></button>
+								<button class='ui-widget dropdownbuttondelete' id='permanentdistrictdropdowndelete'></button>
+								<span class="error" for="permanentdistrict">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Police Station</td>
+                            <td>
+                                <input formelement="addservice" type="text" id="permanentpolicestation">
+								<span class="error" for="permanentpolicestation">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pincode</td>
+                            <td>
+                                <input  min=6 max=6 number formelement="addservice" type="text" id="permanentpincode">
+								<span class="error" for="permanentpincode">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </div>
+            </div>
+            <div id="familydetails">
+                <table class="applicationtable">
+                    <tr>
+                        <td>Marital Status<span class="required">*</span></td>
+                        <td>
+                            <input formelement="addservice" type='radio' name="maritalstatus" value="Married" id="maritalstatus1" checked>Married
+                            <input formelement="addservice" type='radio' name="maritalstatus" value="Single" id="maritalstatus2">Single
+                            <input formelement="addservice" type='radio' name="maritalstatus" value="Divorced" id="maritalstatus3">Divorced
+							<span class="error" for="maritalstatus">
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Date of marriage</td>
+                        <td>
+                            <input date formelement="addservice" type="text" id="dateofmarriage">
+							<span class="error" for="dateofmarriage">
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Spouse Name</td>
+                        <td>
+                            <input textonly formelement="addservice" type="text" id="spousename">
+							<span class="error" for="spousename">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Spouse Relation</td>
+                        <td>
+                            <input formelement="addservice"  type='radio' name="spouserelation" value="Wife" id="spouserelation" checked>Wife
+                            <input formelement="addservice" type='radio' name="spouserelation" value="Husband" id="spouserelation">Husband
+							<span class="error" for="spouserelation">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Spouse Date of Birth</td>
+                        <td>
+                            <input date formelement="addservice" id="spousedob">
+							<span class="error" for="spousedob">
+                        </td>
+                    </tr>
+					
+                    <tr>
+                        <td>Spouse Identification Mark</td>
+                        <td>
+                            <input formelement="addservice" type="text" id="spouseidentificationmark">
+							<span class="error" for="spouseidentificationmark">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Spouse Qualification</td>
+                        <td>
+                            <input formelement="addservice"  type="text" id="spousequalification">
+							<span class="error" for="spousequalification">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Spouse Employed?</td>
+                        <td>
+                            <input formelement="addservice" type='radio' name="isspouseemployed" value="Employed" id="isspouseemployed" >Employed
+                            <input formelement="addservice" type='radio' name="isspouseemployed" value="Un-Employed" id="isspouseemployed" checked>Un-Employed
+							<span class="error" for="isspouseemployed">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Spouse Profession</td>
+                        <td>
+                            <input formelement="addservice" type="text" id="spouseprofession">
+							<span class="error" for="spouseprofession">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Nomination</th>
+                    </tr>
+                    <tr>
+                        <td>Name of next of Kin</td>
+                        <td>
+                            <input formelement="addservice" type="text" id="nextofkinname">
+							<span class="error" for="nextofkinname">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Relation with kin</td>
+                        <td>
+                            <select formelement="addservice" id="nextofkinrelation">
+                                <option value="Wife">Wife</option>
+                                <option value="Husband">Husband</option>
+                                <option value="Father">Father</option>
+                                <option value="Mother">Mother</option>
+                                <option value="Son">Son</option>
+                                <option value="Daughter">Daughter</option>
+                                <option value="Brother">Brother</option>
+                                <option value="Sister">Sister</option>
+                            </select>
+							<span class="error" for="nextofkinrelation"/>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Date of Death of Veteran</td>
+                        <td>
+                            <input date formelement="addservice" type="text" id="veterandateofdeath"/>
+							<span class="error" for="veterandateofdeath"/>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Spouse Date of Death</td>
+                        <td>
+                            <input date formelement="addservice" id="spousedateofdeath">
+							<span class="error" for="spousedateofdeath">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="dependentdetails" style=" padding:5px 5px 5px 5px;">
+               <table id="dependenttable" cellspacing=0 border="0" class="datatable">
+                    <tr class="theader_row" id="theader_row">
+                        <th style="text-align:left" class="theader_column"  id="theader_column0" style="width: 16px;"></th>
+                        <th style="text-align:left" class="theader_column"  id="theader_column1">Name</th>
+                        <th style="text-align:left" class="theader_column" id="theader_column2">Relation</th>
+                        <th style="text-align:left" class="theader_column" id="theader_column3">DOB</th>
+                        <th style="text-align:left" class="theader_column" id="theader_column4">Marital Status</th>
+                        <th style="text-align:left" class="theader_column" id="theader_column5">Education</th>
+                        <th style="text-align:left" class="theader_column" id="theader_column5">Course</th>
+                        <th style="text-align:left" class="theader_column" id="theader_column5" style="width: 25px;">Education year</th>
+                        <th style="text-align:left" class="theader_column" id="theader_column5">Is Employed?</th>
+                    </tr>
+					<tr class="tr_even" id="" datarow="template" style="display:none">
+                        <td id="" field="select"  style="width: 16px;">
+                            <input type="checkbox" id=""/>
+                        </td>
+                        <td id="" class="td"  field="dependentname">
+                            <input type="text" id=""/>
+                        </td>
+                        <td  id="" class="td"  field="relation">
+                            <select id="" style="width:120px">
+                                <option value="">--Select--</option>
+                                <option value="Father">Father</option>
+                                <option value="Mother">Mother</option>
+                                <option value="Son">Son</option>
+                                <option value="Daughter">Daughter</option>
+                            </select>
+                        </td>
+                        <td  id="" date formelement="addservice" class="td" field="dob">
+                            <input type="text" id="" size="10"/>
+                        </td>
+                        <td id="" class="td" field="maritalstatus">
+                            <input type="radio" name="" id="" value="Married">Married
+                            <input type="radio" name="" id="" value="Un-Married">Un-Married
+                        </td>
+                        <td id="" class="td" field="education">
+                            <select id="" style="width:100px">
+                                <option value="School">School</option>
+                                <option value="UG">UG</option>
+                                <option value="PG">PG</option>
+                                <option value="Diploma">Diploma</option>
+                            </select>
+                        </td>
+                         <td id="" class="td" field="course">
+                             <input type="text" id=""/>
+                         </td>
+                         <td id="" number formelement="addservice" class="td" field="courseyear"  style="width: 25px;">
+                              <input type="text" id=""  size="10"/>
+                         </td>
+                         <td id="" class="td" field="employmentstatus">
+                            <input type="radio" name="dependenttable_row1_employmentstatus" id="dependenttable_row1_employmentstatus" value="Employed">Yes
+                            <input type="radio" name="dependenttable_row1_employmentstatus" id="dependenttable_row1_employmentstatus" value="Un-Employed">No
+                         </td>
+                    </tr>
+                    <tr>
+                        <td colspan=2><button class='ui-widget buttonclass' id='dependenttable_add'></button>
+                            <button class='ui-widget buttonclass' id='dependenttable_delete'></button>
+                        </td>
+                    </tr>
+		        </table>
+            </div>
+		</div>
+        <input type="button" id="submitbutton" value="Submit">
+    </div>
+	
+	 <div id="edittab" style="display:inline">
+		<div  class="ui-corner-all" id="searcharea" style="display:inline;float:left;width:23%;height:210px;border:solid 1px grey;padding:6px">
+			<div>
+				<b>Search Veterans</b>
+				<table id="searchservices"  class="applicationtable">
+					<tr>
+						<td><b>Branch Name:</b></td>
+						<td> <select id="queryboardname">
+								<option value="">--Select--</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Search In</td>
+						<td> <select id="searchservices_searchin"> 
+								<option>--Select--</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Operator</td>
+						<td> <select id="searchservices_operator"> 
+								<option>--Select--</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><hr/></td>
+						<td><hr/></td>
+					</tr>
+				</table>
+				<button id="getServices">Search</button>		
+				<div>Note:All searches are case sensitive</div>
+			</div>
+		</div>
+        <table style="display:inline" id="servicestable" cellspacing=0 border="0" class="datatable">
+				
+		</table>
+		<div id="edittabform" style="display:inline-block;width:100%">
+            <ul>
+                <li><a href="#editservicedetails">Service Details</a></li>
+                <li><a href="#editpensiondetails">Pension Details</a></li>
+                <li><a href="#editpersonaldetails">Personal Details</a></li>
+                <li><a href="#editcontactdetails">Contact Details</a></li>
+                <li><a href="#editfamilydetails">Family Details</a></li>
+				<li><a href="#editdependentdetails">Dependent Details</a></li>
+            </ul>
+            <div id="editservicedetails"  style="display: inline-block;width:1165px">
+				<div style="width:1027px">
+                <table style="float:left" class="applicationtable">
+                    <tr>
+                        <td>Branch<span class="required">*</span></td>
+                        <td>
+							<select required formelement="editservice" id="editboard">
+									<option value="">--Select--</option>
+								</select>
+							<span class="error" for="editboard"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Service<span class="required">*</span></td>
+                        <td>
+                            <select required formelement="editservice" id="editservice">
+								<option value="">--Select--</option>
+								<option value="Air Force">Air Force</option>
+							</select>
+							<span class="error" for="editservice"/>
+                        </td>
+                    </tr>
+                    <tr style="display:none">
+                        <td>Corps</td>
+                        <td>
+                            <select  formelement="editservice" type="text" id="editcorps">
+								<option value="">--Select--</option>
+							</select>
+							<button class='ui-widget dropdownbutton' id='editcorpsdropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='editcorpsdropdowndelete'></button>
+							<span class="error" for="editcorps"/>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Group</td>
+                        <td>
+                            <select  formelement="editservice" type="text" id="editgroup">
+								<option value="">--Select--</option>
+							</select>
+							<button class='ui-widget dropdownbutton' id='editgroupdropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='editgroupdropdowndelete'></button>
+							<span class="error" for="editgroup"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Trade</td>
+                        <td>
+                            <select required formelement="editservice"  type="text" id="edittrade">
+								<option value="">--Select--</option>
+							</select>
+							<button class='ui-widget dropdownbutton' id='edittradedropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='edittradedropdowndelete'></button>
+							<span class="error" for="edittrade"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rank<span class="required">*</span></td>
+                        <td>
+                            <select  required formelement="editservice" type="text" id="editrank">
+								<option value="">--Select--</option>
+							</select>
+							<button class='ui-widget dropdownbutton' id='editrankdropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='editrankdropdowndelete'></button>
+							<span class="error" for="editrank"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Name<span class="required">*</span></td>
+                        <td>
+                            <input  required formelement="editservice" type="text" id="editname">
+							<span class="error" for="editname"/>
+                        </td>
+                    </tr>
+					<tr>
+						<td>New Veteran Photo</td>
+                        <td>
+                            <form method="POST" enctype="multipart/form-data" id="edituploadphotoform"  action="../UploadImage">
+								<input formelement="editservice" type="file" name="editphoto" id="editphoto"/>
+							</form>
+							<span class="error" for="editphoto"/>
+						</td>
+                    </tr>
+                    <tr>
+						<td>New Family Photo</td>
+                        <td>
+                            <form method="POST" enctype="multipart/form-data" id=edituploadfamilyphotoform  action="../UploadImage">
+								<input formelement="editservice" type="file" name="editfamilyphoto" id="editfamilyphoto"/>
+							</form>
+							<span class="error" for="editfamilyphoto"/>
+						</td>
+                    </tr>
+                </table>
+                <table  style="margin-left: 550px;width:540px" class="applicationtable">
+                    <tr>
+                        <td style="width: 121px;">Service No.<span class="required">*</span></td>
+                        <td>
+                            <input number required formelement="editservice" type="text" id="editserviceno" disabled>
+							<span class="error" for="editserviceno"/>
+                        </td>
+                    </tr>
+					<tr>
+                        <td style="width: 121px;">Registration No<span class="required">*</span></td>
+                        <td>
+                            <input required formelement="editservice" type="text" id="editregistrationno" disabled>
+							<span class="error" for="editregistrationno">
+                        </td>
+                    </tr>
+                    <tr>
+                            <td>AFA Card No.</td>
+                            <td>
+                                <input formelement="addservice" type="text" id="afacardno">
+								<span class="error" for="afacardno">
+                            </td>
+                        </tr>
+                    <tr>
+                        <td>Date of birth<span class="required">*</span></td>
+                        <td>
+                            <input date required formelement="editservice" id="editdob">
+							<span class="error" for="editdob"/>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Gender</td>
+                        <td>
+                            <input  formelement="editservice" type='radio' name="editgender" value="Male" id="editgender" checked>Male
+                            <input  formelement="editservice" type='radio' name="editgender" value="Female" id="editgender">Female
+							<span class="error" for="editgender"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Enrollment date<span class="required">*</span></td>
+                        <td>
+                            <input date required formelement="editservice" id="editdateenrolled">
+							<span class="error" for="editdateenrolled"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>World War II</td>
+                        <td>
+                            <input formelement="editservice" type='radio' name="editwwii" value="Yes" id="editwwii">Yes
+                            <input formelement="editservice" type='radio' name="editwwii" value="No" id="editwwii" checked>No
+							<span class="error" for="editwwii"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Operations</td>
+                        <td>
+                            <input formelement="editservice" type="text" id="editoperations">
+							<span class="error" for="editoperations"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Decoration</td>
+                        <td>
+                            <input formelement="editservice" type="text" id="editdecoration">
+							<span class="error" for="editdecoration"/>
+                        </td>
+                    </tr>
+					<tr>
+                        <td></td>
+                        <td>
+                            <input style="display:none" formelement="editservice" type="text" id="editphotokey">
+                        </td>
+                    </tr>
+                </table>
+				</div>
+				<div style="float: right;  margin-top: -198px;">
+					<table>
+					<tr>
+						<td>Veteran Photo</td>
+						<td style="padding-left:50px;">Family Photo</td>
+					</tr>
+					<tr>
+						<td><img formelement="editservice" src="" id="editdisplayservicephoto" style="width:110px;height:110px"/></td>
+						<td><img formelement="editservice" src="" id="editdisplayfamilyphoto" style="margin-left:50px; width:110px;height:110px"/></td>
+					</tr>
+					</table>					
+				</div>
+            </div>
+            <div id="editpensiondetails" style="display: inline-block;">
+                <table style="float:left" class="applicationtable">
+                    <tr>
+                        <td style="width:150px">Unit last served<span class="required">*</span></td>
+                        <td>
+                            <input required formelement="editservice" type="text" id="editunitlastserved">
+							<span class="error" for="editunitlastserved"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date of discharge<span class="required">*</span></td>
+                        <td>
+                            <input date required formelement="editservice" id="editdatedischarged">
+							<span class="error" for="editdatedischarged"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Discharge Reason</td>
+                        <td>
+                            <select formelement="editservice" type="text" id="editdischargereason">
+								<option value="">--Select--</option>
+							</select>
+							<button class='ui-widget dropdownbutton' id='editdischargereasondropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='editdischargereasondropdowndelete'></button>
+							<span class="error" for="editdischargereason"/>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Date of death</td>
+                        <td>
+                            <input date formelement="editservice" id="editdateofdeath" disabled>
+							<span class="error" for="editdateofdeath"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Death Details</td>
+                        <td>
+                            <select formelement="editservice" id="editdeathdetails" disabled>
+								<option value="Not Applicable">--Not Applicable--</option>
+								<option value="Attributable">Attributable</option>
+								<option value="Non-Attributable">Non-Attributable </option>
+								<option value="War">War</option>
+								<option value="Operation">Operation</option>
+							</select>
+							<button class='ui-widget dropdownbutton' id='editdeathdetailsdropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='editdeathdetailsdropdowndelete'></button>
+							<span class="error" for="editdeathdetails"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Medical category while discharge</td>
+                        <td>
+							<select formelement="editservice" id="editmcatdischarge" ></select>
+							<button class='ui-widget dropdownbutton' id='editmcatdischargedropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='editmcatdischargedropdowndelete'></button>
+							<span class="error" for="editmcatdischarge"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Character at discharge</td>
+                        <td>
+							<select formelement="editservice" id="editcharacteratdischarge" ></select>
+							<button class='ui-widget dropdownbutton' id='editcharacteratdischargedropdown'></button>
+							<button class='ui-widget dropdownbuttondelete' id='editcharacteratdischargedropdowndelete'></button>
+							<span class="error" for="editcharacteratdischarge"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Discharge Book No</td>
+                        <td>
+                            <input  formelement="editservice" type="text" id="editdischargebookno">
+							<span class="error" for="editdischargebookno"/>
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin-left: 576px ; width:570px" class="applicationtable">
+                    <tr>
+                        <td style="width: 165px;">PPO No</td>
+                        <td>
+                            <input  formelement="editservice" type="text" id="editpponumber">
+							<span class="error" for="editpponumber"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Name of Records Office</td>
+                        <td>
+                            <input formelement="editservice" type="text" id="editcda">
+							<span class="error" for="editcda"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Service Pension</td>
+                        <td>
+                            <input formelement="editservice" type="text" id="editservicepension">
+							<span class="error" for="editservicepension"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Disability Pension</td>
+                        <td>
+                            <input  formelement="editservice" type="text" id="editdisabilitypension">
+							<span class="error" for="editdisabilitypension"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Percentage of disability</td>
+                        <td>
+                            <input number formelement="editservice" type="text" id="editpercentageofdisability">
+							<span class="error" for="editpercentageofdisability"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pension Account Number</td>
+                        <td>
+                            <input number  formelement="editservice" type="text" id="editpensionaccno">
+							<span class="error" for="editpensionaccno"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bank Name</td>
+                        <td>
+                            <input  formelement="editservice" type="text" id="editbankname">
+							<span class="error" for="editbankname"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="editpersonaldetails" style="display: inline-block;">
+                    <table style="float:left;width: 545px;" class="applicationtable">
+                        <tr>
+                            <td style="width: 110px;">Father's Name<span class="required">*</span></td>
+                            <td style="width: 320px;">
+                                <input textonly required formelement="editservice" type="text" id="editfathername">
+								<span class="error" for="editfathername"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mother's Name</td>
+                            <td>
+                                <input  textonly  formelement="editservice" formelement="editservice" type="text" id="editmothername">
+								<span class="error" for="editmothername"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Identification Mark<span class="required">*</span></td>
+                            <td>
+                                <input required formelement="editservice" type="text" id="editidentificationmark">
+								<span class="error" for="editidentificationmark"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Religion</td>
+                            <td>
+                                 <select formelement="editservice" type="text" id="editreligion">
+                                 	<option value="">--Select--</option>
+									<option value="">Hindu</option>
+									<option value="">Muslim</option>
+									<option value="">Sikh</option>
+									<option value="">Christian</option>
+									<option value="">Jain</option>
+									<option value="">Others</option>
+								</select>
+								<span class="error" for="editreligion"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Caste</td>
+                            <td>
+                                 <select formelement="editservice" type="text" id="editcaste">
+                                 	<option value="">--Select--</option>
+									<option value="">SC</option>
+									<option value="">ST</option>
+									<option value="">OBC</option>
+									<option value="">MBC</option>
+									<option value="">OC</option>
+								</select>
+								<span class="error" for="editcaste"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Birth Place</td>
+                            <td>
+                                <input  formelement="editservice" type="text" id="editbirthplace">
+								<span class="error" for="editbirthplace"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Birth State</td>
+                            <td>
+								<select  formelement="editservice" id="editbirthstate">
+									<option value="">--Select--</option>
+								</select>
+								<button class='ui-widget dropdownbutton' id='editbirthstatedropdown'></button>
+								<button class='ui-widget dropdownbuttondelete' id='editbirthstatedropdowndelete'></button>
+                               <span class="error" for="editbirthstate"/>
+                            </td>
+                        </tr>
+						<tr>
+                            <td>Birth District</td>
+                            <td>
+								<select  formelement="editservice" id="editbirthdistrict">
+									<option value="">--Select--</option>
+								</select>
+								<button class='ui-widget dropdownbutton' id='editbirthdistrictdropdown'></button>
+								<button class='ui-widget dropdownbuttondelete' id='editbirthdistrictdropdowndelete'></button>
+                                <span class="error" for="editbirthdistrict"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Educational Qualification in Civil</td>
+                            <td>
+                                <select  formelement="editservice" type="text" id="editqualificationincivil">
+									<option value="">--Select--</option>
+								</select>
+								<button class='ui-widget dropdownbutton' id='editqualificationincivildropdown'></button>
+								<button class='ui-widget dropdownbuttondelete' id='editqualificationincivildropdowndelete'></button>
+								<span class="error" for="editqualificationincivil"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Educational Qualification in Service</td>
+                            <td>
+                                <select  formelement="editservice" type="text" id="editqualificationinservice">
+									<option value="">--Select--</option>
+								</select>
+								<button class='ui-widget dropdownbutton' id='editqualificationinservicedropdown'></button>
+								<button class='ui-widget dropdownbuttondelete' id='editqualificationinservicedropdowndelete'></button>
+								<span class="error" for="editqualificationinservice"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="margin-left:570px;; width:560px" class="applicationtable">
+						<tr>
+                            <td style="width: 140px;">Reemployment Status</td>
+                            <td>
+								<input  formelement="editservice" type='radio' name="editreemploymentstatus" value="Employed" id="editreemploymentstatus1" checked>Employed
+								<input  formelement="editservice" type='radio' name="editreemploymentstatus" value="Un-Employed" id="editreemploymentstatus2">Un-Employed
+								<input formelement="editservice" type='radio' name="editreemploymentstatus" value="Retired" id="editreemploymentstatus3">Retired
+								<span class="error" for="editreemploymentstatus"/>								
+							</td>
+                        </tr>
+                        <tr>
+                            <td>Employer</td>
+                            <td>
+                                <input  formelement="editservice" type="text" id="editemployer">
+								<span class="error" for="editemployer"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Income</td>
+                            <td>
+                                <input  number formelement="editservice" type="text" id="editmonthlyincome">
+								<span class="error" for="editmonthlyincome"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Department</td>
+                            <td>
+                                <input  formelement="editservice" type="text" id="editdepartment">
+								<span class="error" for="editdepartment"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Official Contact Number</td>
+                            <td>
+                                <input telephonenumber  formelement="editservice" type="text" id="editofficecontactno">
+								<span class="error" for="editofficecontactno"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Adhar Card Number</td>
+                            <td>
+                                <input min="12" max="12" formelement="editservice" type="text" id="editadharcardno">
+								<span class="error" for="editadharcardno"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CSD Card Number</td>
+                            <td>
+                                <input  formelement="editservice" type="text" id="editcsdcardno">
+								<span class="error" for="editcsdcardno"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ECHS Card Number</td>
+                            <td>
+                                <input  formelement="editservice" type="text" id="editechscardno">
+								<span class="error" for="editechscardno"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date Registered</td>
+                            <td>
+                                <input date formelement="editservice" type="text" id="editdateregistered">
+								<span class="error" for="editdateregistered"/>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+            <div id="editcontactdetails" style="display: inline-block;width:95%">
+					  <table style="float:left;width:550px" class="applicationtable">
+                            <tr>
+                                <th>Current Address</th>
+                            </tr>
+                            <tr>
+                                <td style="width: 112px;">Door No.</td>
+                                <td style="width: 300px;">
+                                    <input formelement="editservice" type="text" id="editcommunicationdoorno">
+									<span class="error" for="editcommunicationdoorno"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>House name</td>
+                                <td>
+                                    <input formelement="editservice" type="text" id="editcommunicationhousename">
+									<span class="error" for="editcommunicationhousename"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Street<span class="required">*</span></td>
+                                <td>
+                                    <input required formelement="editservice" type="text" id="editcommunicationstreet">
+									<span class="error" for="editcommunicationstreet"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>City<span class="required">*</span></td>
+                                <td>
+                                    <input required formelement="editservice" type="text" id="editcommunicationcity">
+									<span class="error" for="editcommunicationcity"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>State<span class="required">*</span></td>
+                                <td>
+									<select required formelement="editservice" id="editcommunicationstate">
+										<option value="">--Select--</option>
+									</select>
+									<button class='ui-widget dropdownbutton' id='editcommunicationstatedropdown'></button>
+									<button class='ui-widget dropdownbuttondelete' id='editcommunicationstatedropdowndelete'></button>
+									<span class="error" for="editcommunicationstate"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>District</td>
+                                <td>
+									<select formelement="editservice" id="editcommunicationdistrict">
+										<option value="">--Select--</option>
+									</select>
+									<button class='ui-widget dropdownbutton' id='editcommunicationdistrictdropdown'></button>
+									<button class='ui-widget dropdownbuttondelete' id='editcommunicationdistrictdropdowndelete'></button>
+									<span class="error" for="editcommunicationdistrict"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table  style="margin-left:74px;float:left" class="applicationtable">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Police Station</td>
+                                <td>
+                                    <input formelement="editservice" type="text" id="editcommunicationpolicestation">
+									<span class="error" for="editcommunicationpolicestation"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Pincode</td>
+                                <td>
+                                    <input min=6 max=6  number formelement="editservice" type="text" id="editcommunicationpincode">
+									<span class="error" for="editcommunicationpincode"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Telephone no.</td>
+                                <td>
+                                    <input telephonenumber formelement="editservice" type="text" id="editcommunicationtelephone">
+									<span class="error" for="editcommunicationtelephone"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mobile</td>
+                                <td>
+                                    <input number formelement="editservice" type="text" id="editcommunicationmobile">
+									<span class="error" for="editcommunicationmobile"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>
+                                    <input email formelement="editservice" type="text" id="editcommunicationemail">
+									<span class="error" for="editcommunicationemail"/>
+                                </td>
+                            </tr>
+                    </table>
+					<br><hr style="clear:left; "/>
+					<table style=" float:left" class="applicationtable">
+                        <tr>
+                            <th>Permanent Address</th>
+							<td><button type="button" id="editsameaddress" value="Copy">Same as above</button></td>
+                        </tr>
+                        <tr>
+                            <td>Door Number</td>
+                            <td>
+                                <input formelement="editservice" type="text" id="editpermanentdoorno">
+								<span class="error" for="editpermanentdoorno"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>House Name</td>
+                            <td>
+                                <input formelement="editservice" type="text" id="editpermanenthousename">
+								<span class="error" for="editpermanenthousename"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Street</td>
+                            <td>
+                                <input formelement="editservice" type="text" id="editpermanentstreet">
+								<span class="error" for="editpermanentstreet"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td>
+                                <input formelement="editservice" type="text" id="editpermanentcity">
+								<span class="error" for="editpermanentcity"/>
+                            </td>
+                        </tr>
+                    </table>
+					<table  style="margin-left:156px; width:500px" class="applicationtable">
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>State</td>
+								<td>
+									<select formelement="editservice" id="editpermanentstate">
+											<option value="">--Select--</option>
+										</select>
+									<button class='ui-widget dropdownbutton' id='editpermanentstatedropdown'></button>		
+									<button class='ui-widget dropdownbuttondelete' id='editpermanentstatedropdowndelete'></button>		
+									<span class="error" for="editpermanentstate"/>
+								</td>
+							</tr>
+							<tr>
+								<td>District</td>
+								<td>
+									<select formelement="editservice" id="editpermanentdistrict">
+											<option value="">--Select--</option>
+										</select>
+									<button class='ui-widget dropdownbutton' id='editpermanentdistrictdropdown'></button>		
+									<button class='ui-widget dropdownbuttondelete' id='editpermanentdistrictdropdowndelete'></button>		
+
+										<span class="error" for="editpermanentdistrict"/>
+								</td>
+							</tr>
+							<tr>
+								<td>Police Station</td>
+								<td>
+									<input formelement="editservice" type="text" id="editpermanentpolicestation">
+									<span class="error" for="editpermanentpolicestation"/>
+								</td>
+							</tr>
+							<tr>
+								<td>Pincode</td>
+								<td>
+									<input min=6 max=6  number formelement="editservice" type="text" id="editpermanentpincode">
+									<span class="error" for="editpermanentpincode"/>
+								</td>
+							</tr>
+						</table>
+               
+            </div>
+            <div id="editfamilydetails" style="display: inline-block;">
+                <table class="applicationtable">
+                    <tr>
+                        <td>Marital Status<span class="required">*</span></td>
+                        <td>
+							<input formelement="editservice" type='radio' name="editmaritalstatus" value="Married" id="editmaritalstatus1" checked>Married
+							<input formelement="editservice" type='radio' name="editmaritalstatus" value="Single" id="editmaritalstatus2">Single
+							<input formelement="editservice" type='radio' name="editmaritalstatus" value="Divorced" id="editmaritalstatus3">Divorced
+							<span class="error" for="editmaritalstatus"/>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Date of marriage</td>
+                        <td>
+                            <input date formelement="editservice" type="text" id="editdateofmarriage">
+							<span class="error" for="editdateofmarriage"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Spouse Name</td>
+                        <td>
+                            <input textonly formelement="editservice" type="text" id="editspousename">
+							<span class="error" for="editspousename"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Spouse Relation</td>
+                        <td>
+							<input formelement="editservice" type='radio' name="editspouserelation" value="Wife" id="editspouserelation" checked>Wife
+							<input formelement="editservice" type='radio' name="editspouserelation" value="Husband" id="editspouserelation">Husband
+							<span class="error" for="editspouserelation"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Spouse Date of Birth</td>
+                        <td>
+                            <input date formelement="editservice" id="editspousedob">
+							<span class="error" for="editspousedob"/>
+                        </td>
+                    </tr>
+					
+                    <tr>
+                        <td>Spouse Identification Mark</td>
+                        <td>
+                            <input formelement="editservice" type="text" id="editspouseidentificationmark">
+							<span class="error" for="editspouseidentificationmark"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Spouse Qualification</td>
+                        <td>
+                            <input formelement="editservice" type="text" id="editspousequalification">
+							<span class="error" for="editspousequalification"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Spouse Employed?</td>
+                        <td>
+							<input formelement="editservice" type='radio' name="editisspouseemployed" value="Employed" id="editisspouseemployed" >Employed
+							<input formelement="editservice" type='radio' name="editisspouseemployed" value="Un-Employed" id="editisspouseemployed" checked>Un-Employed
+							<span class="error" for="editisspouseemployed"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Spouse Profession</td>
+                        <td>
+                            <input formelement="editservice" type="text" id="editspouseprofession">
+							<span class="error" for="editspouseprofession"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Nomination</th>
+                    </tr>
+                    <tr>
+                        <td>Name of next of Kin</td>
+                        <td>
+                            <input formelement="editservice" type="text" id="editnextofkinname">
+							<span class="error" for="editnextofkinname"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Relation with kin</td>
+                        <td>
+							<select formelement="editservice" id="editnextofkinrelation">
+								<option value="Wife">Wife</option>
+								<option value="Husband">Husband</option>
+								<option value="Father">Father</option>
+								<option value="Mother">Mother</option>
+								<option value="Son">Son</option>
+								<option value="Daughter">Daughter</option>
+								<option value="Brother">Brother</option>
+								<option value="Sister">Sister</option>
+							</select>
+							<span class="error" for="editnextofkinrelation"/>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Date of Death of Veteran</td>
+                        <td>
+                            <input date formelement="editservice" type="text" id="editveterandateofdeath"/>
+							<span class="error" for="editveterandateofdeath"/>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>Spouse Date of Death</td>
+                        <td>
+                            <input date formelement="editservice" id="editspousedateofdeath">
+							<span class="error" for="editspousedateofdeath">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+			<div id="editdependentdetails" style="width:99%; padding:5px 5px 5px 5px;display: inline-block">
+               <table id="editdependenttable" cellspacing=0 border="0" class="datatable" class="">
+                    <tr class="theader_row" id="theader_row">
+                        <th class="theader_column"  id="theader_column0"></th>
+                        <th class="theader_column"  id="theader_column1" >Name</th>
+                        <th class="theader_column" id="theader_column2">Relation</th>
+                        <th class="theader_column" id="theader_column3">DOB</th>
+                        <th class="theader_column" id="theader_column4">Marital Status</th>
+                        <th class="theader_column" id="theader_column5">Education</th>
+                        <th class="theader_column" id="theader_column6">Course</th>
+                        <th class="theader_column" id="theader_column7">Education year</th>
+                        <th class="theader_column" id="theader_column8">Is Employed?</th>
+                    </tr>
+					<tr class="tr_even" id="" datarow="template" style="display:none">
+                        <td id="" field="select"  style="width: 16px;">
+                            <input type="checkbox" id=""/>
+                        </td>
+                        <td id="" class="td" field="dependentname">
+                            <input type="text" id="" size=18/>
+                        </td>
+                        <td  id="" class="td"  field="relation">
+                            <select id=""  style="width:120px">
+                                <option value="">--Select--</option>
+                                <option value="Father">Father</option>
+                                <option value="Mother">Mother</option>
+                                <option value="Son">Son</option>
+                                <option value="Daughter">Daughter</option>
+                            </select>
+                        </td>
+                        <td  id=""  date formelement="editservice" class="td" field="dob">
+                            <input type="text" id="" size="10"/>
+                        </td>
+                        <td id="" class="td" field="maritalstatus">
+                            <input type="radio" name="" id="" value="Married">Married
+                            <input type="radio" name="" id="" value="Un-Married">Un-Married
+                        </td>
+                        <td id="" class="td" field="education">
+                            <select id=""  style="width:100px">
+                                <option value="School">School</option>
+                                <option value="UG">UG</option>
+                                <option value="PG">PG</option>
+                                <option value="Diploma">Diploma</option>
+                            </select>
+                        </td>
+                         <td id="" class="td" field="course">
+                             <input type="text" id=""/>
+                         </td>
+                         <td id="" number formelement="addservice" class="td" field="courseyear"  style="width: 25px;">
+                              <input type="text" id=""  size="10"/>
+                         </td>
+                         <td id="" class="td" field="employmentstatus">
+                            <input type="radio" name="editdependenttable_row1_employmentstatus" id="editdependenttable_row1_employmentstatus" value="Employed">Yes
+                            <input type="radio" name="editdependenttable_row1_employmentstatus" id="editdependenttable_row1_employmentstatus" value="Un-Employed">No
+                         </td>
+                    </tr>
+                    
+                   <tr>
+                        <td colspan=2><button class='ui-widget buttonclass' id='editdependenttable_add'></button>
+                            <button class='ui-widget buttonclass' id='editdependenttable_delete'></button>
+                        </td>
+                    </tr>
+		        </table>
+            </div>
+        </div>
+        <input type="button" id="editsubmitbutton" value="Update"/>
+		<input type="button" id="editdeletebutton" value="Delete"/>
+</div>
+</div>
+
+
+<div id="dialogcontainer" style="display:none">
+	<div id="addnewformentry">
+		<table class="applicationtable">
+			<tr style="display:none" data='false' template>
+				<td id=""></td>
+				<td id=""><input id="" type="text" disabled/></td>
+			</tr>
+			<tr data='true'>
+				<td id="addfield"></td>
+				<td><input id="addfieldvalue" type="text"/></td>
+			</tr>
+		</table>
+		<div id="addnewformentryErrorDiv" style="color:red"></div>
+	</div>
+	<div id="deletenewformentry">
+		<table class="applicationtable">
+			<tr style="display:none" data='false' template>
+				<td id=""></td>
+				<td id=""><input id="" type="text" disabled/></td>
+			</tr>
+			<tr data='true'>
+				<td id="deletefield"></td>
+				<td><input id="deletefieldvalue" type="text" disabled/></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="modal"><!-- Place at bottom of page --></div>
+<div id="veterandeleteconfirm" style="display:none">Are you sure to delete this veteran? All details including dependents of this veteran will be permanently deleted.</div>
+</body>
+</html>

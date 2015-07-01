@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"> 
+	<link rel="stylesheet" type="text/css" href="../css/ext-all-gray.css">
+    <!--link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"-->
+    <script src="../js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" language="javascript" src="../js/ext-all-debug.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+	<script type="text/javascript" language="javascript" src="../js/validate.js"></script>
+	<script type="text/javascript" language="javascript" src="../js/reportQueryMetaData.js"></script>
+    <script type="text/javascript" language="javascript" src="../js/report.js"></script>
+    <title></title>
+</head>
+<body>
+    <div id="tabs">
+    <ul>
+        <li><a href="#edittab">Generate Reports</a></li>
+    </ul>
+    <div id="edittab">
+		<table style="width:100%" id="querytable" cellspacing=0 border="0" class="datatable">
+                <tr class="theader_row" id="theader_row">
+					<th style="text-align:left;width:150px" class="theader_column" id="theader_column1">Choose field</th>
+					<th style="text-align:left" class="theader_column" id="theader_column2">Field</th>
+					<th style="text-align:left" class="theader_column" id="theader_column2">Operator</th>
+					<th style="text-align:left" class="theader_column" id="theader_column3">Value</th>
+				</tr>
+				<tr class="tr_even" id="servicestable_row1" field="board">
+					<td style="text-align:left;width:150px" id="servicestable_r1c1" class="td" column="checkbox"><input type="checkbox"></input></td>
+					<td  id="servicestable_r1c2" class="td">Branch Name</td>
+					<td  id="servicestable_r1c3"  class="td" column="control"></td>
+                    <td id="servicestable_r1c4" class="td" column="value">
+						<select  label='Service' id='query_boardname'><option value=''>--Select--</option></select>
+					</td>
+				</tr>
+				<tr class="tr_odd" id="servicestable_row2"  field="service">
+					<td id="servicestable_r2c1"  class="td" column="checkbox"><input type="checkbox"></input></td>
+					<td id="servicestable_r2c2"  class="td">Service</td>
+					<td id="servicestable_r2c3"  class="td" column="control"></td>
+                    <td id="servicestable_r2c4" class="td" column="value">
+						<select  label='Service' id='query_service'><option value=''>--Select--</option><option value='Army'>Army</option><option value='Navy'>Navy</option><option value='Air Force'>Air Force</option></select>
+					</td>
+				</tr>
+				<tr class="tr_even" id="servicestable_row3" field="trade">
+					<td id="servicestable_r3c1" class="td" column="checkbox"><input type="checkbox"></input></td>
+					<td  id="servicestable_r3c2" class="td">Trade</td>
+					<td id="servicestable_r3c3" class="td" column="control"></td>
+                    <td id="servicestable_r3c4" class="td" column="value">
+						<select  label='Service' id='query_trade'><option value=''>--Select--</option></select>
+					</td>
+				</tr>
+				<tr class="tr_odd" id="servicestable_row4" field="dateofbirth">
+					<td id="servicestable_r4c1" class="td" column="checkbox"><input type="checkbox"></input></td>
+					<td id="servicestable_r4c2" class="td">Date of Birth</td>
+					<td id="servicestable_r4c3"  class="td" column="control"></td>
+                    <td id="servicestable_r4c4" class="td" column="value">
+						<input type='text' id='query_dateofbirth' label=''/>
+					</td>
+				</tr>
+				<tr class="tr_even" id="servicestable_row5" field="dateofdeath">
+					<td id="servicestable_r5c1" class="td" column="checkbox"><input type="checkbox"></input></td>
+					<td id="servicestable_r5c2" class="td">Date of Expiry</td>
+					<td id="servicestable_r5c3"  class="td" column="control"></td>
+                    <td id="servicestable_r5c4" class="td" column="value">
+						<input type='text' id='query_expirydate' label=''/>
+					</td>
+				</tr>
+				<tr class="tr_odd" id="servicestable_row6"  field="reemploymentstatus">
+					<td id="servicestable_r6c1" class="td" column="checkbox"><input type="checkbox" ></input></td>
+					<td id="servicestable_r6c2" class="td">Employment Status</td>
+					<td id="servicestable_r6c3"  class="td" column="control"></td>
+                    <td id="servicestable_r6c4" class="td" column="value">
+						<select  id='query_reemploymentstatus'><option value=''>--Select--</option><option value='Employed'>Employed</option><option value='Un-Employed'>Un-Employed</option></select>
+					</td>
+				</tr>
+		</table>
+		
+		<div id='result'></div>
+</div>
+<div class="modal"><!-- Place at bottom of page --></div>
+</body>
+</html>
